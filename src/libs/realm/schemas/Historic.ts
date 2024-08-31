@@ -3,6 +3,7 @@ import { CoordsSchemaProps } from "./Coords";
 
 type GenerateSchemaProps = {
   user_id: string;
+  user_name: string;
   license_plate: string;
   description: string;
   coords: CoordsSchemaProps[];
@@ -11,6 +12,7 @@ type GenerateSchemaProps = {
 export class Historic extends Realm.Object<Historic> {
   _id!: string;
   user_id!: string;
+  user_name!: string;
   license_plate!: string;
   description!: string;
   coords!: CoordsSchemaProps[];
@@ -20,6 +22,7 @@ export class Historic extends Realm.Object<Historic> {
 
   static generate({
     user_id,
+    user_name,
     license_plate,
     description,
     coords,
@@ -27,6 +30,7 @@ export class Historic extends Realm.Object<Historic> {
     return {
       _id: new Realm.BSON.UUID(),
       user_id,
+      user_name,
       license_plate,
       description,
       coords,
@@ -46,6 +50,7 @@ export class Historic extends Realm.Object<Historic> {
         type: "string",
         indexed: true,
       },
+      user_name: "string",
       license_plate: "string",
       description: "string",
       coords: {

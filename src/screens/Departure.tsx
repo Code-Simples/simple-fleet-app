@@ -104,6 +104,7 @@ export function Departure() {
           "Historic",
           Historic.generate({
             user_id: user!.id,
+            user_name: user.profile.name || "",
             license_plate: licensePlate.toUpperCase(),
             description,
             coords: [
